@@ -13,7 +13,9 @@
 Plugins/
 PluginYourGames/
 WebGLTemplates/
-CustomAssets
+CustomAssets/
+AddressableAssetsData/
+TextMesh Pro/
 *.log
 
 # MemoryCaptures can get excessive in size.
