@@ -107,6 +107,10 @@ GameObject:
   - component: {fileID: 2847528495120268745}
   - component: {fileID: 3547995941755030459}
   - component: {fileID: 5257639071243309635}
+  - component: {fileID: 2203620745867747060}
+  - component: {fileID: 6853663910187024155}
+  - component: {fileID: 6005889009640639729}
+  - component: {fileID: 8568289004218014411}
   m_Layer: 0
   m_Name: TankerPro
   m_TagString: Untagged
@@ -142,7 +146,7 @@ Animator:
   m_GameObject: {fileID: 1476446092588501957}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d694066f36e6ff540be2637f52d54220, type: 3}
-  m_Controller: {fileID: 9100000, guid: 355124acd4d6f974282a83d89afc58a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81fdcebbabf4c71469d3c6388deff14f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -201,6 +205,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decb0432d69e54b46870f113a97914e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 2203620745867747060}
+--- !u!114 &2203620745867747060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b677504467219114bb31c2efa281479f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 4667098897487112198}
+--- !u!114 &6853663910187024155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5011fc917abf68c43a9c0737757ba14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6005889009640639729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a299d67a8b862441a0175215acbed4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8568289004218014411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3ece2afe9debb4cb96bd02de6d4538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
 --- !u!1 &1612978704917675640
 GameObject:
   m_ObjectHideFlags: 0
