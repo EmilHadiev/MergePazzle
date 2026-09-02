@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8819055100597925495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRGunSupport02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993491432668820325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRArmIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5366683245016137893}
   - component: {fileID: 5698620008444847722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gripper Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280060316355882743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 793422240985863899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579184664781908515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLArmThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8942982696826528490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRGunSupport01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 555762733898009543}
   - component: {fileID: 2443255271501107969}
   - component: {fileID: 1238287607326808749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ElectroX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c439bb828d07fe947957882f4074491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 910c2e1d4f634bf4d99bc083eb625275, type: 2}
 --- !u!114 &5360876287251332019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6281535584202471881}
+  _data: {fileID: 11400000, guid: 910c2e1d4f634bf4d99bc083eb625275, type: 2}
 --- !u!114 &6281535584202471881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1777990954286137626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLArmIndex1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8282535329800435224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRGunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2940991125505661704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLGunBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8432268371088363007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLGunSupport02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2419324836643677758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6620671314250583273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4930500967160349405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigLGunSupport01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1874253743611341496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2954475615250478808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145431131664626282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigRArmThumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

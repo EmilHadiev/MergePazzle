@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class RobotMover : MonoBehaviour
 {
-    [SerializeField] private RobotData _data;
-
     private IMovable _movable;
 
     private void Start()
     {
         Debug.Log("Доработать!");
-        _movable = new RobotMoveLogic(transform, _data);
+        var data = GetComponent<IRobot>().Data;
+        _movable = new RobotMoveLogic(transform, data);
         _movable.StartMove();
     }
 

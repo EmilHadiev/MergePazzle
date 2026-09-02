@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367196275992820479}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6415170722315625287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8448913406403754215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7559397897991713069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1945657332623265169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9079225452228161681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8916806475228461801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 68294270245011877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 36004074889354148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436341058372639462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5930420018628009259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3803890115453254965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8789221574013768663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8620359953682684640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 1278799617045919561}
   - component: {fileID: 4423248637323916138}
   - component: {fileID: 7889540615727694409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Speedster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 3501254735253631516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.97, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -531,9 +531,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1.85, z: 0}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &857788259783061369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c439bb828d07fe947957882f4074491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 12e2f1be49f13564f8097336585f716f, type: 2}
 --- !u!114 &2009475477062935340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2581507976108670020}
+  _data: {fileID: 11400000, guid: 12e2f1be49f13564f8097336585f716f, type: 2}
 --- !u!114 &2581507976108670020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9169919924015924466}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416674936284085280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8696060226801682335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739229854241728525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7673675725459021809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3875516392617030081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920550521909172352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6103254547335883420}
   - component: {fileID: 2206975682356244806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tentacles Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5790913338306695790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5338323892093162144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707558842594121826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7140059322035838512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6028805784454725706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6539062959690983893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1155,7 +1155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7211289651934329250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,7 +1187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5140505863319974682}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3699666594512632948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 797962117017520575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLF8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298706046285044368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8224760572845875264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6315183497692063016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRF1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1379,7 +1379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2288934083197701983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4514700520409689802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1443,7 +1443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2884193978764049220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailRB7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8586813636371083018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RigTailLB5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

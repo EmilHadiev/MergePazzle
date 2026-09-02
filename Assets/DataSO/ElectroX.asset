@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <StartHealth>k__BackingField: 18
   <StartDamage>k__BackingField: 12
+  <AttackRange>k__BackingField: 3
+  <AttackRadius>k__BackingField: 1
   <StartAttackSpeed>k__BackingField: 1.2
   <MoveSpeed>k__BackingField: 2
   <StartPrice>k__BackingField: 30
+  <AttackType>k__BackingField: 1
+  <AttackTarget>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
   RobotLevel: 1
