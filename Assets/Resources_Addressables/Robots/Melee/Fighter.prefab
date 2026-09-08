@@ -28,7 +28,8 @@ Transform:
   m_LocalPosition: {x: -0.09238842, y: 0, z: -1.8189894e-14}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1671202145697359685}
   m_Father: {fileID: 8433845977897924443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615796523446117734
@@ -93,6 +94,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7753536994778912674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2263285935946016795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671202145697359685}
+  - component: {fileID: 735095589173961990}
+  m_Layer: 6
+  m_Name: ElectricFieldPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1671202145697359685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263285935946016795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.175, y: -0, z: -0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 5349479091047288912}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &735095589173961990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263285935946016795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980f8feb98a9cc24ca98d8d6123fe350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3901752022225066877
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +310,7 @@ GameObject:
   - component: {fileID: 4201857910015341511}
   - component: {fileID: 8607628089861213678}
   - component: {fileID: 8063566772825028882}
+  - component: {fileID: 5462651569268684370}
   m_Layer: 6
   m_Name: Fighter
   m_TagString: Untagged
@@ -410,6 +456,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
+--- !u!114 &5462651569268684370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653406640635851823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6e62a9f91e5bb488a9d1d415c11aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _electroFieldposition: {fileID: 735095589173961990}
 --- !u!1 &6273196118223921102
 GameObject:
   m_ObjectHideFlags: 0

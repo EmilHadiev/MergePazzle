@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Attacker : MonoBehaviour, IAttackable
 {
     private IAttackLogic _attackLogic;
+
+    public event Action AttackStarting;
+    public event Action AttackEnding;
 
     private void Start()
     {
@@ -13,6 +17,8 @@ public class Attacker : MonoBehaviour, IAttackable
     public void Attack()
     {
         _attackLogic.Attack();
+
+        AttackStarting?.Invoke();
     }
 
     private IAttackLogic GetAttackLogic(RobotData data)
@@ -33,6 +39,6 @@ public class Attacker : MonoBehaviour, IAttackable
 
     private void AttackEnded()
     {
-        Debug.Log(gameObject.name + " attack ended");
+        AttackEnding?.Invoke();
     }
 }

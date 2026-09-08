@@ -10,5 +10,6 @@ public class SceneInstaller : MonoInstaller
     private void BindFactory()
     {
         Container.BindInterfacesTo<Factory>().AsSingle();
+        Container.BindInterfacesAndSelfTo<ParticleFactory>().AsSingle();
     }
 }

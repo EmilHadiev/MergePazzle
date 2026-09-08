@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -19,9 +18,11 @@ public class Factory : IFactory
         return _instantiator.InstantiatePrefab(obj, position, rotation, parent);
     }
 
-    public async UniTask<T> LoadAssetAsync<T>(string name) where T : UnityEngine.Object
+    public async UniTask<T> LoadPrefabAsync<T>(string name) where T : UnityEngine.Object
     {
         var result = await _addressables.LoadAssetAsync(name);
-        return result as T;
+        var prefab = Create((GameObject)result);
+       
+        return prefab.GetComponent<T>();
     }
 }
