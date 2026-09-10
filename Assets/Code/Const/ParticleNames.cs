@@ -1,4 +1,8 @@
 ﻿public enum ParticleNames
 {
-    ElectroField,
+    ElectricExplosion,
+    SplashExplosion,
+    GreenImpactCross,
+    GreenImpactGrowing,
+    ElectroLightningImpact
 }

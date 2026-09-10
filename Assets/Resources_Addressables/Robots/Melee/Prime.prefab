@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 8899168848214702064}
   - component: {fileID: 2235107958323371204}
   - component: {fileID: 2360981002324260606}
+  - component: {fileID: 4834704906459515337}
   m_Layer: 6
   m_Name: Prime
   m_TagString: Untagged
@@ -105,6 +106,7 @@ Transform:
   - {fileID: 1687089263874167399}
   - {fileID: 8951464878806235023}
   - {fileID: 1274722452001700326}
+  - {fileID: 4759161005275860893}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &790775333177648015
@@ -227,6 +229,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 10
+--- !u!114 &4834704906459515337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329216146640503347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6e62a9f91e5bb488a9d1d415c11aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackParticlePosition: {fileID: 2186812500806301758}
+  _particleName: 1
 --- !u!1 &2569784267417297307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1119,50 @@ Transform:
   - {fileID: 4048516850881913090}
   m_Father: {fileID: 7792711953160392179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8732785436234465253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4759161005275860893}
+  - component: {fileID: 2186812500806301758}
+  m_Layer: 6
+  m_Name: ExplosionParticlePlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759161005275860893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732785436234465253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9017557690206881013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2186812500806301758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732785436234465253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980f8feb98a9cc24ca98d8d6123fe350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8832795255250519986
 GameObject:
   m_ObjectHideFlags: 0
