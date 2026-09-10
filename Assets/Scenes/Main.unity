@@ -477,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animators:
   - {fileID: 962145291}
+  - {fileID: 0}
 --- !u!1 &684742777
 GameObject:
   m_ObjectHideFlags: 0

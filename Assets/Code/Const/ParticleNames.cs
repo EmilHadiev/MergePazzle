@@ -4,5 +4,7 @@
     SplashExplosion,
     GreenImpactCross,
     GreenImpactGrowing,
-    ElectroLightningImpact
+    ElectroLightningImpact,
+    FireballGreen,
+    ElectricField
 }

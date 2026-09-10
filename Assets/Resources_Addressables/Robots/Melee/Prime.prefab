@@ -243,6 +243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackParticlePosition: {fileID: 2186812500806301758}
   _particleName: 1
+  _effects:
+  - Name: 1
+    Position: {fileID: 2186812500806301758}
 --- !u!1 &2569784267417297307
 GameObject:
   m_ObjectHideFlags: 0

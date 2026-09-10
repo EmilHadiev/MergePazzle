@@ -4,17 +4,16 @@ using Zenject;
 
 public class DefaultAttackEffectViewer : MonoBehaviour, ICharacterEffect
 {
-    [SerializeField] private ParticlePosition _attackParticlePosition;
-    [SerializeField] private ParticleNames _particleName;
+    [SerializeField] private EffectViewInfo[] _effects;
 
-    [Inject] protected readonly IParticleFactory Factory;
+    [Inject] private readonly IParticleFactory _factory;
 
-    private ParticleView _particle;
+    private ParticleView[] _particles;
     private IAttackable _attackable;
 
     private void Start()
     {
-        CreateParticle().Forget();
+        CreateParticles().Forget();
         _attackable ??= GetComponent<IAttackable>();
 
         _attackable.AttackEnding += Play;
@@ -25,15 +24,20 @@ public class DefaultAttackEffectViewer : MonoBehaviour, ICharacterEffect
         _attackable.AttackEnding -= Play;
     }
 
-    protected virtual async UniTask CreateParticle()
+    private async UniTask CreateParticles()
     {
-        _particle = await Factory.CreateAsyncParticle(_particleName.ToString(), _attackParticlePosition);
-        _particle.Hide();
+        _particles = new ParticleView[_effects.Length];
+        for (int i = 0; i < _particles.Length; i++)
+        {
+            var effect = _effects[i];
+            _particles[i] = await _factory.CreateAsyncParticle(effect.Name.ToString(), effect.Position);
+            _particles[i].Hide();
+        }
     }
 
     public virtual void Play()
     {
-        PlayAnimation();
+        PlayEffects();
     }
 
     public virtual void Stop()
@@ -41,8 +45,9 @@ public class DefaultAttackEffectViewer : MonoBehaviour, ICharacterEffect
 
     }
 
-    protected virtual void PlayAnimation()
+    protected virtual void PlayEffects()
     {
-        _particle.Show();
+        foreach (var effect in _particles)
+            effect.Show();
     }
 }
