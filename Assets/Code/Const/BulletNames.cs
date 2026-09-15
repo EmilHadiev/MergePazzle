@@ -1,0 +1,4 @@
+﻿public enum BulletNames
+{
+    Fireball
+}
