@@ -6,5 +6,6 @@
     GreenImpactGrowing,
     ElectroLightningImpact,
     FireballGreen,
-    ElectricField
+    ElectricField,
+    ShotImpact
 }

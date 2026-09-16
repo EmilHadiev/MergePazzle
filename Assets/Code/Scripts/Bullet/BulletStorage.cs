@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class BulletPool : MonoBehaviour, IAttackLogic
+[RequireComponent(typeof(ShotImpactView))]
+public class BulletStorage : MonoBehaviour, IBulletStorage
 {
     [SerializeField] private BulletNames _bulletName;
     [SerializeField] private Bullet _bulletTemplate;
@@ -35,7 +36,7 @@ public class BulletPool : MonoBehaviour, IAttackLogic
         }
     }
 
-    public void Attack()
+    public void Spawn()
     {
         SpawnBullet();
     }
@@ -54,7 +55,7 @@ public class BulletPool : MonoBehaviour, IAttackLogic
             else
             {
                 CreateBullets().Forget();
-            }            
+            }
         }
     }
 

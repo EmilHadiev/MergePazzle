@@ -28,8 +28,8 @@ public class Attacker : MonoBehaviour, IAttackable
             case AttackType.Melee:
                 return new MeleeAttackLogic(data, transform, data.AttackTarget);
             case AttackType.Range:
-                IAttackLogic bulletSpanwer = GetComponent<BulletPool>();
-                return new RangeAttackLogic(ParticleNames.FireballGreen, null, null, bulletSpanwer);
+                IBulletStorage bulletSpanwer = GetComponent<BulletStorage>();
+                return new RangeAttackLogic(bulletSpanwer);
             default:
                 return null;
         }
