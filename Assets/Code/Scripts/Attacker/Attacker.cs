@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AttackTargetDetector))]
 public class Attacker : MonoBehaviour, IAttackable
 {
     private IAttackLogic _attackLogic;
@@ -17,7 +18,6 @@ public class Attacker : MonoBehaviour, IAttackable
     public void Attack()
     {
         _attackLogic.Attack();
-
         AttackStarting?.Invoke();
     }
 
@@ -37,7 +37,7 @@ public class Attacker : MonoBehaviour, IAttackable
 
     private void AttackStarted()
     {
-        Attack();
+        Attack();        
     }
 
     private void AttackEnded()
