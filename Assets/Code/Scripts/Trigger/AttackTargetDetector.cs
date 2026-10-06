@@ -1,29 +1,32 @@
 using UnityEngine;
-using Zenject;
 
 public class AttackTargetDetector : MonoBehaviour
 {
-    [SerializeField] private TriggerObserver _observer;
+    [SerializeField] private AttackSensor _sensor;
 
     private IRobotBehaviourStateMachine _stateMachine;
+
+    private void OnValidate()
+    {
+        _sensor ??= GetComponentInChildren<AttackSensor>();
+    }
 
     private void Start()
     {
         var robot = GetComponent<IRobot>();
-        _stateMachine = robot.StateMachine;
-        SetZoneOptions(_observer.GetComponent<SphereCollider>(), robot.Data.AttackRadius);
+        _stateMachine = robot.StateMachine;        
     }
 
     private void OnEnable()
     {
-        _observer.Entered += TargetFounded;
-        _observer.Exited += TargetLost;
+        _sensor.TargetDetected += TargetFounded;
+        _sensor.TargetLost += TargetLost;
     }
 
     private void OnDisable()
     {
-        _observer.Entered -= TargetFounded;
-        _observer.Exited -= TargetLost;
+        _sensor.TargetDetected -= TargetFounded;
+        _sensor.TargetLost -= TargetLost;
     }
 
     private void TargetFounded(Collider collider)
@@ -33,12 +36,6 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void TargetLost(Collider collider)
     {
-        _stateMachine.SwitchToPreviouesState();
-    }
-
-    private void SetZoneOptions(SphereCollider collider, float attackRadius)
-    {
-        collider.radius = attackRadius;
-        collider.isTrigger = true;
+        _stateMachine.SwitchTo<StubState>();
     }
 }
