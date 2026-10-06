@@ -6,6 +6,7 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
     private readonly Dictionary<Type, IRobotBehaviourState> _states;
 
     private IRobotBehaviourState _currentState;
+    private IRobotBehaviourState _previousState;
 
     public RobotBehaviourStateMachine(IAttackPerformer attackable, IMover mover)
     {
@@ -19,6 +20,7 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
     {
         if (_states.TryGetValue(typeof(T), out var value))
         {
+            _previousState = _currentState;
             _currentState?.Exit();
 
             _currentState = _states[typeof(T)];
@@ -26,7 +28,13 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
         }
         else
         {
-            throw new TypeAccessException(nameof(T));
+            throw new ArgumentException(nameof(T));
         }
+    }
+
+    public void SwitchToPreviouesState()
+    {
+        _currentState?.Exit();
+        _previousState?.Enter();
     }
 }

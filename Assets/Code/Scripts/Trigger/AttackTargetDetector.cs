@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class AttackTargetDetector : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void Start()
     {
-        _stateMachine = GetComponent<IRobot>().StateMachine;
+        var robot = GetComponent<IRobot>();
+        _stateMachine = robot.StateMachine;
+        SetZoneOptions(_observer.GetComponent<SphereCollider>(), robot.Data.AttackRadius);
     }
 
     private void OnEnable()
@@ -30,6 +33,12 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void TargetLost(Collider collider)
     {
-        _stateMachine.SwitchTo<RobotMoveState>();
+        _stateMachine.SwitchToPreviouesState();
+    }
+
+    private void SetZoneOptions(SphereCollider collider, float attackRadius)
+    {
+        collider.radius = attackRadius;
+        collider.isTrigger = true;
     }
 }

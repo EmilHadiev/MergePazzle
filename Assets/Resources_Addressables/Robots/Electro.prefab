@@ -478,6 +478,8 @@ GameObject:
   - component: {fileID: 4788924351044583085}
   - component: {fileID: 2149183745043501619}
   - component: {fileID: 7111329106821997250}
+  - component: {fileID: 5527411133863278811}
+  - component: {fileID: 1977611796799595649}
   m_Layer: 6
   m_Name: Electro
   m_TagString: Untagged
@@ -494,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 3799440042754427360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.08, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -574,6 +576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2989915097673705500}
+  _mover: {fileID: 8533769944474663523}
+  _attacker: {fileID: 5527411133863278811}
   _data: {fileID: 11400000, guid: 8159550d39b777e4b96ff01e35e16de9, type: 2}
 --- !u!114 &2989915097673705500
 MonoBehaviour:
@@ -657,6 +661,31 @@ MonoBehaviour:
   _shootParticle: 7
   _shootPositions:
   - {fileID: 5985078226128246972}
+--- !u!114 &5527411133863278811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799440042754427360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a273c00dde95d1d4cbfe252090b367ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1977611796799595649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799440042754427360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9d8132cd83af54c94f3f1c76ac4a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _observer: {fileID: 0}
 --- !u!1 &4365817370017708731
 GameObject:
   m_ObjectHideFlags: 0

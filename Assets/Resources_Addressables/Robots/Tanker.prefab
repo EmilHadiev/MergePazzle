@@ -172,6 +172,8 @@ GameObject:
   - component: {fileID: 5588208657099323104}
   - component: {fileID: 8461252914038305847}
   - component: {fileID: 5671125213720300231}
+  - component: {fileID: 3223805930458850676}
+  - component: {fileID: 5683422843956657317}
   m_Layer: 6
   m_Name: Tanker
   m_TagString: Untagged
@@ -270,6 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4582721331941672279}
+  _mover: {fileID: 8487004742693805793}
+  _attacker: {fileID: 3223805930458850676}
   _data: {fileID: 11400000, guid: 7c1730fb398a0514ebb43540918b947a, type: 2}
 --- !u!114 &4582721331941672279
 MonoBehaviour:
@@ -355,6 +359,31 @@ MonoBehaviour:
   - {fileID: 572208548796207808}
   - {fileID: 236341084646223256}
   _poolSize: 15
+--- !u!114 &3223805930458850676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753061701879266108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a273c00dde95d1d4cbfe252090b367ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5683422843956657317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753061701879266108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9d8132cd83af54c94f3f1c76ac4a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _observer: {fileID: 0}
 --- !u!1 &2136057573085646496
 GameObject:
   m_ObjectHideFlags: 0

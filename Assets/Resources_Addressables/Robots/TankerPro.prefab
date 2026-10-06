@@ -157,6 +157,8 @@ GameObject:
   - component: {fileID: 8568289004218014411}
   - component: {fileID: 6570154262405207843}
   - component: {fileID: 7091900409622132889}
+  - component: {fileID: 6308869219963403371}
+  - component: {fileID: 2020766702850442048}
   m_Layer: 6
   m_Name: TankerPro
   m_TagString: Untagged
@@ -173,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 1476446092588501957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -252,6 +254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2203620745867747060}
+  _mover: {fileID: 3547995941755030459}
+  _attacker: {fileID: 6308869219963403371}
   _data: {fileID: 11400000, guid: a583f0b3efef2b14b99395383a5759c0, type: 2}
 --- !u!114 &2203620745867747060
 MonoBehaviour:
@@ -337,6 +341,31 @@ MonoBehaviour:
     Position: {fileID: 2874106711055515584}
   - Name: 6
     Position: {fileID: 2058356249229268468}
+--- !u!114 &6308869219963403371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a273c00dde95d1d4cbfe252090b367ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2020766702850442048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476446092588501957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9d8132cd83af54c94f3f1c76ac4a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _observer: {fileID: 0}
 --- !u!1 &1612978704917675640
 GameObject:
   m_ObjectHideFlags: 0

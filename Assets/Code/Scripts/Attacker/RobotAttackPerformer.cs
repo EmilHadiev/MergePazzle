@@ -61,6 +61,5 @@ public class RobotAttackPerformer : MonoBehaviour, IAttackPerformer
     private void PerformAttack()
     {
         _animator.StartAttacking();
-        Debug.Log("Атакую - атака готова!");
     }
 }
