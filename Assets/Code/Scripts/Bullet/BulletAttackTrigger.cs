@@ -19,6 +19,7 @@ public class BulletAttackTrigger : MonoBehaviour
     private void OnDisable()
     {
         _observer.Entered -= OnEntered;
+        _observer.UnLock();
     }
 
     public void SetDamage(RobotData robotData)
@@ -29,6 +30,8 @@ public class BulletAttackTrigger : MonoBehaviour
     private void OnEntered(Collider collider)
     {
         if (collider.TryGetComponent(out IHealth health))
-            health.TakeDamage(_damage);
+        {
+            health.TakeDamage(_damage);            
+        }
     }
 }

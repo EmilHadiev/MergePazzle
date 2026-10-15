@@ -20,8 +20,8 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
     {
         if (_states.TryGetValue(typeof(T), out var value))
         {
-            _previousState = _currentState;
             _currentState?.Exit();
+            _previousState = _currentState;
 
             _currentState = _states[typeof(T)];
             _currentState.Enter();

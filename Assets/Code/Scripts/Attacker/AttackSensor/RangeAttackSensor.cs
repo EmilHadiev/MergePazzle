@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class RangeAttackSensor : AttackSensor
 {
-    [SerializeField] private LayerMask _mask;
-
     private const int MaxTargets = 1;
 
     private RobotData _data;
     private RaycastHit[] _hits;
+    private Collider _currentTarget;
 
     private bool _isTargetFound;
     private float _time;
@@ -38,32 +37,42 @@ public class RangeAttackSensor : AttackSensor
 
     private void SearchTarget()
     {
-        if (_isTargetFound)
-            return;
-
         Ray ray = new Ray(transform.position, transform.forward);
-        int count = Physics.RaycastNonAlloc(ray, _hits, _data.AttackRange);
+        int count = Physics.RaycastNonAlloc(ray, _hits, _data.AttackRange, _data.AttackTarget);
 
         if (count > 0)
         {
             foreach (var target in _hits)
             {
+                _currentTarget = target.collider;
                 OnTargetDetected(target.collider);
-                Debug.Log(target.collider.gameObject.name);
+                Debug.Log(_currentTarget.gameObject.name);
             }
+        }
+        else
+        {
+            OnTargetLost(_currentTarget);
         }
     }
 
     protected override void OnTargetDetected(Collider target)
     {
+        if (_isTargetFound)
+            return;
+
         _isTargetFound = true;
         TargetDetected?.Invoke(target);
     }
 
     protected override void OnTargetLost(Collider target)
     {
+        if (_isTargetFound == false)
+            return;
+
         _isTargetFound = false;
         TargetLost?.Invoke(target);
+        _currentTarget = null;
+        Array.Clear(_hits, 0, _hits.Length);
     }
 
     private void OnDrawGizmos()

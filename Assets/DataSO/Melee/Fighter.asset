@@ -16,7 +16,7 @@ MonoBehaviour:
   <StartDamage>k__BackingField: 5
   <AttackRange>k__BackingField: 1
   <AttackRadius>k__BackingField: 1
-  <StartAttackSpeed>k__BackingField: 4
+  <StartAttackSpeed>k__BackingField: 2
   <MoveSpeed>k__BackingField: 2
   <StartPrice>k__BackingField: 20
   <AttackType>k__BackingField: 1

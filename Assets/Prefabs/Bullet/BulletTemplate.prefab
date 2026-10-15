@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5212377648842091219}
   - component: {fileID: 3002596234273864056}
   - component: {fileID: 2544990211491169302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,11 +81,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8586705361976570146
 MonoBehaviour:
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attacker: {fileID: 5212377648842091219}
+  _particlePosition: {fileID: 1673822871557364512}
 --- !u!1 &7605460931513206825
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3588984830026696016}
   - component: {fileID: 1673822871557364512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ParticlePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

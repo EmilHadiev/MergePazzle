@@ -10,6 +10,7 @@ public class BulletStorage : MonoBehaviour, IBulletStorage
     [SerializeField] private Bullet _bulletTemplate;
     [SerializeField] private BulletSpawnPosition[] _spawnPositions;
     [SerializeField] private int _poolSize;
+    [SerializeField] private bool _setBulletZeroRotation;
 
     [Inject] private readonly IParticleFactory _factory;
 
@@ -49,7 +50,14 @@ public class BulletStorage : MonoBehaviour, IBulletStorage
 
             if (TryGetAvailableBullet(out Bullet bullet))
             {
-                bullet.transform.SetLocalPositionAndRotation(position.position, position.rotation);
+                Quaternion rotation = position.rotation;
+
+                if (_setBulletZeroRotation)
+                {
+                    rotation = Quaternion.LookRotation(transform.forward);
+                }
+
+                bullet.transform.SetPositionAndRotation(position.position, rotation);
                 bullet.gameObject.SetActive(true);
             }
             else

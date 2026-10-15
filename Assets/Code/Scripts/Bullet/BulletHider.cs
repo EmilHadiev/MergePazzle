@@ -45,7 +45,6 @@ public class BulletHider : MonoBehaviour
 
         await UniTask.Delay(TimeSpan.FromSeconds(_lifeTime), cancellationToken: _cts.Token);
         Hide();
-        Debug.Log("Done");
     }
 
     private void Hide() => gameObject.SetActive(false);

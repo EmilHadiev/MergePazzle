@@ -12,6 +12,8 @@ public class DefaultHealth : MonoBehaviour, IHealth
     public void TakeDamage(float damage)
     {
         _healthPoints -= damage;
+        HealthChanged?.Invoke(_healthPoints);
+        DamageTaked?.Invoke(damage);
         Debug.Log($"{_healthPoints} {damage}");
         Die();
     }
@@ -19,6 +21,9 @@ public class DefaultHealth : MonoBehaviour, IHealth
     private void Die()
     {
         if (_healthPoints <= 0)
+        {
+            Died?.Invoke();
             gameObject.SetActive(false);
+        }    
     }
 }

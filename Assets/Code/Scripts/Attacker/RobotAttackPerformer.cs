@@ -6,9 +6,8 @@ public class RobotAttackPerformer : MonoBehaviour, IAttackPerformer
     private RobotData _data;
     private ICharacterAnimator _animator;
 
-    private bool _isLock;
-    private bool _isAttackReady;
-    private float _currentTime;
+    private bool _isLocked;
+    private float _attackTimer = 0f;
 
     private void Start()
     {
@@ -20,46 +19,51 @@ public class RobotAttackPerformer : MonoBehaviour, IAttackPerformer
 
     public void StartAttacking()
     {
-        _isLock = false;
-        _isAttackReady = true;
-        ResetTime();
+        Debug.Log("Start attacking");
+        _isLocked = false;
+        _attackTimer = _data.StartAttackSpeed;
     }
 
     public void StopAttacking()
     {
-        _isLock = true;
-        _isAttackReady = false;
+        Debug.Log("Stop attacking");
+        _isLocked = true;
 
-        _animator.StopAttacking();
+        StopAttackPerform();
+        ResetTimer();
     }
 
     private void Update()
     {
-        if (_isLock)
+        if (_isLocked)
             return;
 
-        if (_isAttackReady)
+        _attackTimer += Time.deltaTime;
+
+        if (_attackTimer >= _data.StartAttackSpeed)
         {
             PerformAttack();
-            _isAttackReady = false;
+            ResetTimer();
         }
-
-        _currentTime += Time.deltaTime;
-
-        if (_currentTime >= _data.StartAttackSpeed)
+        else
         {
-            _currentTime = 0;
-            _isAttackReady = true;
+            StopAttackPerform();
         }
     }
 
-    private void ResetTime()
+    private void ResetTimer()
     {
-        _currentTime = 0;
+        _attackTimer = 0;
     }
 
     private void PerformAttack()
     {
         _animator.StartAttacking();
+    }
+
+    private void StopAttackPerform()
+    {
+        _animator.StopAttacking();
+        Debug.Log("Stop attacking");
     }
 }
