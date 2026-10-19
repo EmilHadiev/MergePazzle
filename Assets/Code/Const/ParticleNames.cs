@@ -7,5 +7,6 @@
     ElectroLightningImpact,
     FireballGreen,
     ElectricField,
-    ShotImpact
+    ShotImpact,
+    DamageParticle
 }

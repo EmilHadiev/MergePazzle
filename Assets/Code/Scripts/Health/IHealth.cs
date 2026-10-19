@@ -4,7 +4,11 @@ public interface IHealth
 {
     event Action<float> DamageTaked;
     event Action Died;
-    event Action<float> HealthChanged;
+    /// <summary>
+    /// first param - current health
+    /// second param - max health
+    /// </summary>
+    event Action<float, float> HealthChanged;
 
     void TakeDamage(float damage);
 }

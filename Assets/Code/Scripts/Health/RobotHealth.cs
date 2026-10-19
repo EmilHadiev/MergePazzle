@@ -7,14 +7,16 @@ public class RobotHealth : MonoBehaviour, IHealth
     [SerializeField] private float _health = 10;
 
     private ICharacterAnimator _animator;
+    private float _maxHealth;
 
-    public event Action<float> HealthChanged;
+    public event Action<float, float> HealthChanged;
     public event Action<float> DamageTaked;
     public event Action Died;
 
     private void Awake()
     {
         _animator = GetComponent<CharacterAnimator>();
+        _maxHealth = _health;
     }
 
     public void TakeDamage(float damage)
@@ -24,9 +26,10 @@ public class RobotHealth : MonoBehaviour, IHealth
 
         _health -= damage;
 
+        _animator.TakeDamageTrigger();
         CheckDeadStatus();
 
-        HealthChanged?.Invoke(_health);
+        HealthChanged?.Invoke(_health, _maxHealth);
         DamageTaked?.Invoke(damage);
     }
 

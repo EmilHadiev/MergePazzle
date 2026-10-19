@@ -17,7 +17,6 @@ public class Attacker : MonoBehaviour, IAttackable
 
     public void Attack()
     {
-        _attackLogic.Attack();
         AttackStarting?.Invoke();
     }
 
@@ -42,6 +41,7 @@ public class Attacker : MonoBehaviour, IAttackable
 
     private void AttackEnded()
     {
+        _attackLogic.Attack();
         AttackEnding?.Invoke();
     }
 }
