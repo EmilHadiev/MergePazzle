@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6279021562940785073}
   - component: {fileID: 8757857373696588130}
+  - component: {fileID: 7675132290971381416}
   - component: {fileID: 1393450658695322415}
   - component: {fileID: 6220950679128576947}
+  - component: {fileID: 41836256347245325}
   m_Layer: 8
   m_Name: MeleeAttackSensor
   m_TagString: Untagged
@@ -55,6 +57,33 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7675132290971381416
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605690705457755647}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1393450658695322415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,3 +109,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _observer: {fileID: 1393450658695322415}
+  _targetObserver: {fileID: 41836256347245325}
+--- !u!114 &41836256347245325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605690705457755647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c960401e1b4cf44a94c1774bc90e23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackSensor: {fileID: 6220950679128576947}

@@ -2,12 +2,13 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(DeathObserver))]
+[RequireComponent(typeof(DamageTrigger))]
 public class RobotHealth : MonoBehaviour, IHealth
 {
     [SerializeField] private float _health = 10;
 
-    private ICharacterAnimator _animator;
     private float _maxHealth;
+    private bool IsDead => _health <= 0;
 
     public event Action<float, float> HealthChanged;
     public event Action<float> DamageTaked;
@@ -15,18 +16,16 @@ public class RobotHealth : MonoBehaviour, IHealth
 
     private void Awake()
     {
-        _animator = GetComponent<CharacterAnimator>();
         _maxHealth = _health;
     }
 
     public void TakeDamage(float damage)
     {
-        if (damage < 0)
+        if (damage < 0 || IsDead)
             return;
 
         _health -= damage;
 
-        _animator.TakeDamageTrigger();
         CheckDeadStatus();
 
         HealthChanged?.Invoke(_health, _maxHealth);
@@ -35,7 +34,7 @@ public class RobotHealth : MonoBehaviour, IHealth
 
     private void CheckDeadStatus()
     {
-        if (_health <= 0)
+        if (IsDead)
             Died?.Invoke();
     }
 }
