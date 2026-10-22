@@ -16,6 +16,7 @@ WebGLTemplates/
 CustomAssets/
 AddressableAssetsData/
 TextMesh Pro/
+Prefabs/
 *.log
 
 # MemoryCaptures can get excessive in size.
