@@ -1,4 +1,5 @@
 public enum SoundNames
 {
-    None
+    Attack,
+    GetHit
 }
