@@ -1160,6 +1160,10 @@ PrefabInstance:
       propertyPath: _sounds.Array.data[0].<Clip>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 0c3464f52e672234e9a9e32b0be609cb, type: 3}
+    - target: {fileID: 4123857872473371662, guid: 6c938fd3c05438b4a8b67099dc5e78d6, type: 3}
+      propertyPath: _sounds.Array.data[1].<Clip>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: fd59c19d3bd7c7f478a9f5cb220867d3, type: 3}
     - target: {fileID: 5109394688025449473, guid: 6c938fd3c05438b4a8b67099dc5e78d6, type: 3}
       propertyPath: m_Name
       value: RobotSoundContainer
