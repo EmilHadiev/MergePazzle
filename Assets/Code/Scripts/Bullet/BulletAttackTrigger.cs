@@ -33,5 +33,10 @@ public class BulletAttackTrigger : MonoBehaviour
         {
             health.TakeDamage(_damage);            
         }
+
+        if (collider.TryGetComponent(out IDamageImpactView impactView))
+        {
+            impactView.Play(collider.ClosestPoint(transform.position));
+        }
     }
 }

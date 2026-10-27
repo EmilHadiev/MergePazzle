@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(DamageImpactView))]
 public class DamageTrigger : MonoBehaviour
 {
     private ICharacterAnimator _animator;

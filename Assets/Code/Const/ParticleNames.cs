@@ -8,5 +8,6 @@
     FireballGreen,
     ElectricField,
     ShotImpact,
-    DamageParticle
+    DamageParticle,
+    TakeDamageImpact
 }

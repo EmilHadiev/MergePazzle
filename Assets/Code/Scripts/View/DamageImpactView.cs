@@ -4,7 +4,7 @@ using Zenject;
 
 public class DamageImpactView : MonoBehaviour, IDamageImpactView
 {
-    [SerializeField] private ParticleNames _damagImpactParticle;
+    [SerializeField] private ParticleNames _damagImpactParticle = ParticleNames.TakeDamageImpact;
     [SerializeField] private ParticlePosition _damageParticlePosition;
 
     [Inject] private readonly IParticleFactory _particleFactory;
