@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(DamageTrigger))]
 public class RobotHealth : MonoBehaviour, IHealth
 {
-    private float _health = 10;
+    private float _health;
     private float _maxHealth;
     private bool IsDead => _health <= 0;
 
@@ -13,7 +13,7 @@ public class RobotHealth : MonoBehaviour, IHealth
     public event Action<float> DamageTaked;
     public event Action Died;
 
-    private void Awake()
+    private void Start()
     {
         var robot = GetComponent<IRobot>();
         _health = robot.Data.StartHealth;

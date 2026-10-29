@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a0882851faac43824ab03f235327d, type: 3}
   m_Name: Legendary
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 35
-  <StartDamage>k__BackingField: 6
-  <AttackRange>k__BackingField: 12
+  <StartHealth>k__BackingField: 40
+  <StartDamage>k__BackingField: 13
+  <AttackRange>k__BackingField: 10
   <AttackRadius>k__BackingField: 1
-  <StartAttackSpeed>k__BackingField: 2
+  <StartAttackSpeed>k__BackingField: 1.5
   <MoveSpeed>k__BackingField: 2
   <StartPrice>k__BackingField: 36
   <AttackType>k__BackingField: 0
