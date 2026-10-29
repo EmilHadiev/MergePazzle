@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a0882851faac43824ab03f235327d, type: 3}
   m_Name: Legendary
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 20
+  <StartHealth>k__BackingField: 35
   <StartDamage>k__BackingField: 6
-  <AttackRange>k__BackingField: 10
+  <AttackRange>k__BackingField: 12
   <AttackRadius>k__BackingField: 1
   <StartAttackSpeed>k__BackingField: 2
   <MoveSpeed>k__BackingField: 2

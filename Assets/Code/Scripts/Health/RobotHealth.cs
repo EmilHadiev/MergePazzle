@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(DamageTrigger))]
 public class RobotHealth : MonoBehaviour, IHealth
 {
-    [SerializeField] private float _health = 10;
-
+    private float _health = 10;
     private float _maxHealth;
     private bool IsDead => _health <= 0;
 
@@ -16,6 +15,8 @@ public class RobotHealth : MonoBehaviour, IHealth
 
     private void Awake()
     {
+        var robot = GetComponent<IRobot>();
+        _health = robot.Data.StartHealth;
         _maxHealth = _health;
     }
 
