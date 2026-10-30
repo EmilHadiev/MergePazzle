@@ -7,8 +7,8 @@ public class RobotTargetRotator : MonoBehaviour
     [SerializeField] private BulletSpawnPosition[] _bulletspawnPositions;
 
     private Transform _target;
-    private Vector3 _robotDefaulVector;
-    private Vector3[] _bulletDefaultVectors;
+    private Vector3 _robotDefaultVector;
+    private Quaternion[] _bulletDefaultRotations;
 
     private void OnValidate()
     {
@@ -30,8 +30,10 @@ public class RobotTargetRotator : MonoBehaviour
 
     private void Start()
     {
-        _robotDefaulVector = transform.forward;
-        _bulletDefaultVectors = _bulletspawnPositions.Select(v => v.transform.forward).ToArray();
+        _robotDefaultVector = transform.forward;
+        _bulletDefaultRotations = _bulletspawnPositions
+            .Select(v => v.transform.localRotation)
+            .ToArray();
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class RobotTargetRotator : MonoBehaviour
             return;
 
         RobotLookAt(_target.position);
-        //BulletsLookAt(_target.position);
+        BulletsLookAt(_target.position);
     }
 
     private void RobotLookAt(Vector3 position)
@@ -70,8 +72,13 @@ public class RobotTargetRotator : MonoBehaviour
     {
         _target = null;
 
-        transform.forward = _robotDefaulVector;
+        transform.forward = _robotDefaultVector;
+        ResetBulletRotations();
+    }
+
+    private void ResetBulletRotations()
+    {
         for (int i = 0; i < _bulletspawnPositions.Length; i++)
-            _bulletspawnPositions[i].transform.LookAt(_bulletDefaultVectors[i]);
+            _bulletspawnPositions[i].transform.localRotation = _bulletDefaultRotations[i];
     }
 }
