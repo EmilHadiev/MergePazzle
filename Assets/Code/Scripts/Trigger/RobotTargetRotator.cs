@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class ShootRotator : MonoBehaviour
+public class RobotTargetRotator : MonoBehaviour
 {
     [SerializeField] private AttackSensor _sensor;
     [SerializeField] private BulletSpawnPosition[] _bulletspawnPositions;
@@ -39,13 +39,19 @@ public class ShootRotator : MonoBehaviour
         if (_target == null)
             return;
 
-        transform.LookAt(_target.position);
+        RobotLookAt(_target.position);
         //BulletsLookAt(_target.position);
     }
 
     private void RobotLookAt(Vector3 position)
     {
-        
+        var direction = position - transform.position;
+        direction.y = 0f;
+
+        if (direction.sqrMagnitude < 0.0001f)
+            return;
+
+        transform.rotation = Quaternion.LookRotation(direction);
     }
 
     private void BulletsLookAt(Vector3 position)
