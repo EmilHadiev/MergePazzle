@@ -9,5 +9,6 @@
     ElectricField,
     ShotImpact,
     DamageParticle,
-    TakeDamageImpact
+    TakeDamageImpact,
+    Smoke
 }

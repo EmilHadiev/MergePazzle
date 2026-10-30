@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(RobotAttackPerformer))]
 [RequireComponent(typeof(RobotHealth))]
 [RequireComponent(typeof(RobotSoundObserver))]
+[RequireComponent(typeof(RobotTargetRotator))]
 public class Robot : MonoBehaviour, IRobot
 {
     [SerializeField] private CharacterAnimator _animator;
