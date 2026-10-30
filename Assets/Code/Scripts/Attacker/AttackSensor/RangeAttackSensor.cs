@@ -45,8 +45,7 @@ public class RangeAttackSensor : AttackSensor
             foreach (var target in _hits)
             {
                 _currentTarget = target.collider;
-                OnTargetDetected(target.collider);
-                Debug.Log(_currentTarget.gameObject.name);
+                OnTargetDetected(_currentTarget);
             }
         }
         else
