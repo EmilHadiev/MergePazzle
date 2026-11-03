@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Attacker))]
 public class RobotAttackPerformer : MonoBehaviour, IAttackPerformer
 {
-    private RobotData _data;
+    private IRobotData _data;
     private ICharacterAnimator _animator;
 
     private bool _isLocked;

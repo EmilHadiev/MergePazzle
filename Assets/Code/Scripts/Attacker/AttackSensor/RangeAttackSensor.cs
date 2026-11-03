@@ -5,7 +5,7 @@ public class RangeAttackSensor : AttackSensor
 {
     private const int MaxTargets = 1;
 
-    private RobotData _data;
+    private IRobotData _data;
     private RaycastHit[] _hits;
     private Collider _currentTarget;
 

@@ -3,11 +3,11 @@
 public class RobotMoveLogic : IMovable
 {
     private readonly Transform _robot;
-    private readonly RobotData _data;
+    private readonly IRobotData _data;
     private readonly ICharacterAnimator _animator;
     private bool _isWorking;
 
-    public RobotMoveLogic(Transform robot, RobotData speed, ICharacterAnimator animator)
+    public RobotMoveLogic(Transform robot, IRobotData speed, ICharacterAnimator animator)
     {
         _robot = robot;
         _data = speed;

@@ -4,7 +4,7 @@ public class BulletAttackTrigger : MonoBehaviour
 {
     [SerializeField] private TriggerObserver _observer;
 
-    private float _damage;
+    private IRobotData _data;
 
     private void OnValidate()
     {
@@ -22,16 +22,16 @@ public class BulletAttackTrigger : MonoBehaviour
         _observer.UnLock();
     }
 
-    public void SetDamage(RobotData robotData)
+    public void SetDamage(IRobotData robotData)
     {
-        _damage = robotData.StartDamage;
+        _data = robotData;
     }
 
     private void OnEntered(Collider collider)
     {
         if (collider.TryGetComponent(out IHealth health))
         {
-            health.TakeDamage(_damage);            
+            health.TakeDamage(_data.StartDamage);            
         }
 
         if (collider.TryGetComponent(out IDamageImpactView impactView))

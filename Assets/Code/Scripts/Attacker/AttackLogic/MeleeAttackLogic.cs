@@ -2,18 +2,18 @@
 
 public class MeleeAttackLogic : IAttackLogic
 {
-    private const int AttackTarget = 1;
+    private readonly int _attackTarget = 1;
     private readonly Transform _robot;
-    private readonly RobotData _robotData;
+    private readonly IRobotData _robotData;
     private readonly Collider[] _targets;
     private readonly LayerMask _layerTarget;
 
-    public MeleeAttackLogic(RobotData robotData, Transform robot, LayerMask layerTarget)
+    public MeleeAttackLogic(IRobotData robotData, Transform robot, LayerMask layerTarget, int attackTarget = 1)
     {
         _layerTarget = layerTarget;
         _robot = robot;
         _robotData = robotData;
-        _targets = new Collider[AttackTarget];
+        _targets = new Collider[_attackTarget];
     }
 
     public void Attack()

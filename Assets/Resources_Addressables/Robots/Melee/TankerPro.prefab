@@ -265,6 +265,7 @@ MonoBehaviour:
   _animator: {fileID: 2203620745867747060}
   _mover: {fileID: 3547995941755030459}
   _attacker: {fileID: 6308869219963403371}
+  _robotName: 8
   _data: {fileID: 11400000, guid: a583f0b3efef2b14b99395383a5759c0, type: 2}
 --- !u!114 &2203620745867747060
 MonoBehaviour:

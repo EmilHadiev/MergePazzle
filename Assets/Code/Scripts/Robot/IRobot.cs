@@ -2,5 +2,5 @@
 {
     ICharacterAnimator Animator { get; }
     IRobotBehaviourStateMachine StateMachine { get; }
-    RobotData Data { get; }
+    IRobotData Data { get; }
 }

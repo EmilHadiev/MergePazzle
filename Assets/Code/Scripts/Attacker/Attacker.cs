@@ -20,7 +20,7 @@ public class Attacker : MonoBehaviour, IAttackable
         AttackStarting?.Invoke();
     }
 
-    private IAttackLogic GetAttackLogic(RobotData data)
+    private IAttackLogic GetAttackLogic(IRobotData data)
     {
         switch (data.AttackType)
         {

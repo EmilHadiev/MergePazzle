@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(RobotMover))]
@@ -12,10 +15,11 @@ public class Robot : MonoBehaviour, IRobot
     [SerializeField] private CharacterAnimator _animator;
     [SerializeField] private RobotMover _mover;
     [SerializeField] private RobotAttackPerformer _attacker;
+    [SerializeField] private RobotsName _robotName;
     [SerializeField] private RobotData _data;
 
     public ICharacterAnimator Animator => _animator;
-    public RobotData Data { get; private set; }
+    public IRobotData Data => _data;
     public IRobotBehaviourStateMachine StateMachine { get; private set; }
 
     private void OnValidate()
@@ -27,12 +31,17 @@ public class Robot : MonoBehaviour, IRobot
 
     private void Awake()
     {
-        Data = Instantiate(_data);
         StateMachine = new RobotBehaviourStateMachine(_attacker, _mover);
     }
 
     private void Start()
     {
         StateMachine.SwitchTo<StubState>();
+    }
+
+    [Inject]
+    public void Construct(IEnumerable<RobotData> data)
+    {
+        _data = data.First(n => n.RobotName == _robotName);
     }
 }

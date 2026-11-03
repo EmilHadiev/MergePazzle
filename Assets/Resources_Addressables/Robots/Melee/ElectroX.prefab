@@ -550,6 +550,7 @@ MonoBehaviour:
   _animator: {fileID: 6281535584202471881}
   _mover: {fileID: 5664131914666795116}
   _attacker: {fileID: 4443355274520275169}
+  _robotName: 1
   _data: {fileID: 11400000, guid: 910c2e1d4f634bf4d99bc083eb625275, type: 2}
 --- !u!114 &6281535584202471881
 MonoBehaviour:
@@ -1419,7 +1420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6279021562940785073, guid: bd8b003d01f72514682d0a1d4065f338, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 6279021562940785073, guid: bd8b003d01f72514682d0a1d4065f338, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/" + nameof(RobotData), fileName = nameof(RobotData))]
-public class RobotData : ScriptableObject
+public class RobotData : ScriptableObject, IRobotData
 {
     [field: SerializeField] public float StartHealth { get; private set; }
     [field: SerializeField] public float StartDamage { get; private set; }
@@ -12,5 +12,6 @@ public class RobotData : ScriptableObject
     [field: SerializeField] public float StartPrice { get; private set; }
     [field: SerializeField] public AttackType AttackType { get; private set; }
     [field: SerializeField] public LayerMask AttackTarget { get; private set; }
+    [field: SerializeField] public RobotsName RobotName { get; private set; }
     public int RobotLevel = 1;
 }

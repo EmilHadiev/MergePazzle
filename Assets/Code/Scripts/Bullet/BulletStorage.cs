@@ -15,7 +15,7 @@ public class BulletStorage : MonoBehaviour, IBulletStorage
     [Inject] private readonly IParticleFactory _factory;
 
     private List<Bullet> _bullets;
-    private RobotData _robotData;
+    private IRobotData _robotData;
 
     private void Start()
     {

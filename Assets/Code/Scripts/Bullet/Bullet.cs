@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Robot data
     /// </summary>
-    public void SetData(RobotData robotData)
+    public void SetData(IRobotData robotData)
     {
         _attacker.SetDamage(robotData);
     }
