@@ -25,13 +25,23 @@ public class Attacker : MonoBehaviour, IAttackable
         switch (data.AttackType)
         {
             case AttackType.Melee:
-                return new MeleeAttackLogic(data, transform, data.AttackTarget);
+                return GetMeleeAttackLogic(data);
             case AttackType.Range:
                 IBulletStorage bulletSpanwer = GetComponent<BulletStorage>();
                 return new RangeAttackLogic(bulletSpanwer);
             default:
                 return null;
         }
+    }
+
+    private IAttackLogic GetMeleeAttackLogic(IRobotData data)
+    {
+        if (TryGetComponent(out TargetCounter counter))
+        {
+            Debug.Log(counter.TargetCount);
+            return new MeleeAttackLogic(data, transform, data.AttackTarget, counter.TargetCount);
+        }
+        return new MeleeAttackLogic(data, transform, data.AttackTarget);
     }
 
     private void AttackStarted()

@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 1874956371537698646}
   - component: {fileID: 7543402678532665338}
   - component: {fileID: 4441722457164484070}
+  - component: {fileID: 8932300466303960126}
   m_Layer: 6
   m_Name: ElectroX
   m_TagString: Untagged
@@ -714,6 +715,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensor: {fileID: 664103911621888641}
   _bulletspawnPositions: []
+--- !u!114 &8932300466303960126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014149800855949337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e01abdd78d46884c8f846ba3fc77302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetCount: 5
 --- !u!1 &4092275132122893559
 GameObject:
   m_ObjectHideFlags: 0

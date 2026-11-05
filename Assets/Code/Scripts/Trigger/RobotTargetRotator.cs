@@ -65,7 +65,6 @@ public class RobotTargetRotator : MonoBehaviour
     private void OnTargetDetected(Collider collider)
     {
         _target = collider.transform;
-        Debug.Log(_target + " finded!!!");
     }
 
     private void OnTargetLost(Collider collider)

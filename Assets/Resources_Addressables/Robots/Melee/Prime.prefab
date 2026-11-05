@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4868095438539331845}
   - component: {fileID: 4353184611198287111}
   - component: {fileID: 6792059916036437983}
+  - component: {fileID: 2548292904520564561}
   m_Layer: 6
   m_Name: Prime
   m_TagString: Untagged
@@ -336,6 +337,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sensor: {fileID: 7331095077558507584}
   _bulletspawnPositions: []
+--- !u!114 &2548292904520564561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329216146640503347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e01abdd78d46884c8f846ba3fc77302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetCount: 10
 --- !u!1 &2569784267417297307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6279021562940785073, guid: bd8b003d01f72514682d0a1d4065f338, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6279021562940785073, guid: bd8b003d01f72514682d0a1d4065f338, type: 3}
       propertyPath: m_LocalRotation.w

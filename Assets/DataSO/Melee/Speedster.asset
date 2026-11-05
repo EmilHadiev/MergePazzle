@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Speedster
   m_EditorClassIdentifier: 
   <StartHealth>k__BackingField: 15
-  <StartDamage>k__BackingField: 4
+  <StartDamage>k__BackingField: 6
   <AttackRange>k__BackingField: 1.5
   <AttackRadius>k__BackingField: 1
   <StartAttackSpeed>k__BackingField: 2
@@ -23,5 +23,5 @@ MonoBehaviour:
   <AttackTarget>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <RobotName>k__BackingField: 6
+  <RobotName>k__BackingField: 5
   RobotLevel: 1

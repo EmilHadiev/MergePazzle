@@ -2,18 +2,19 @@
 
 public class MeleeAttackLogic : IAttackLogic
 {
-    private readonly int _attackTarget = 1;
+    private readonly int _attackCount;
     private readonly Transform _robot;
     private readonly IRobotData _robotData;
     private readonly Collider[] _targets;
     private readonly LayerMask _layerTarget;
 
-    public MeleeAttackLogic(IRobotData robotData, Transform robot, LayerMask layerTarget, int attackTarget = 1)
+    public MeleeAttackLogic(IRobotData robotData, Transform robot, LayerMask layerTarget, int attackCount = 1)
     {
         _layerTarget = layerTarget;
         _robot = robot;
         _robotData = robotData;
-        _targets = new Collider[_attackTarget];
+        _attackCount = attackCount;
+        _targets = new Collider[_attackCount];
     }
 
     public void Attack()
@@ -29,7 +30,7 @@ public class MeleeAttackLogic : IAttackLogic
         if (targetCount == 0)
             return;
 
-        for (int i = 0; i < _targets.Length; i++)
+        for (int i = 0; i < targetCount; i++)
         {
             if (_targets[i].TryGetComponent(out IHealth health))
             {

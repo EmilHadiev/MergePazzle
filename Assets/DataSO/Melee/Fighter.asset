@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Fighter
   m_EditorClassIdentifier: 
   <StartHealth>k__BackingField: 20
-  <StartDamage>k__BackingField: 5
-  <AttackRange>k__BackingField: 1
+  <StartDamage>k__BackingField: 15
+  <AttackRange>k__BackingField: 3
   <AttackRadius>k__BackingField: 1
-  <StartAttackSpeed>k__BackingField: 2
+  <StartAttackSpeed>k__BackingField: 1.5
   <MoveSpeed>k__BackingField: 2
   <StartPrice>k__BackingField: 20
   <AttackType>k__BackingField: 1
