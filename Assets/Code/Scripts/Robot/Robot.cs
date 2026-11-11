@@ -10,23 +10,29 @@ using Zenject;
 [RequireComponent(typeof(RobotHealth))]
 [RequireComponent(typeof(RobotSoundObserver))]
 [RequireComponent(typeof(RobotTargetRotator))]
+[RequireComponent(typeof(RobotUpgrader))]
 public class Robot : MonoBehaviour, IRobot
 {
     [SerializeField] private CharacterAnimator _animator;
     [SerializeField] private RobotMover _mover;
     [SerializeField] private RobotAttackPerformer _attacker;
     [SerializeField] private RobotsName _robotName;
-    [SerializeField] private RobotData _data;
+    [SerializeField] private RobotUpgrader _upgrader;
+
+    private RobotData _data;
 
     public ICharacterAnimator Animator => _animator;
     public IRobotData Data => _data;
     public IRobotBehaviourStateMachine StateMachine { get; private set; }
+
+    public IRobotUpgrader Upgrader => _upgrader;
 
     private void OnValidate()
     {
         _animator ??= GetComponent<CharacterAnimator>();
         _attacker ??= GetComponent<RobotAttackPerformer>();
         _mover ??= GetComponent<RobotMover>();
+        _upgrader ??= GetComponent<RobotUpgrader>();
     }
 
     private void Awake()

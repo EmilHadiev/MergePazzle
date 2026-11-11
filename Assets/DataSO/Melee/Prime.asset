@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a0882851faac43824ab03f235327d, type: 3}
   m_Name: Prime
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 60
-  <StartDamage>k__BackingField: 25
+  <StartHealth>k__BackingField: 100
+  <StartDamage>k__BackingField: 20
   <AttackRange>k__BackingField: 3
   <AttackRadius>k__BackingField: 1.5
-  <StartAttackSpeed>k__BackingField: 2.5
+  <StartAttackSpeed>k__BackingField: 2
   <MoveSpeed>k__BackingField: 2
-  <StartPrice>k__BackingField: 36
+  <StartPrice>k__BackingField: 50
   <AttackType>k__BackingField: 1
   <AttackTarget>k__BackingField:
     serializedVersion: 2

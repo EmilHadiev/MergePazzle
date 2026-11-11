@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/" + nameof(RobotData), fileName = nameof(RobotData))]
@@ -13,5 +14,22 @@ public class RobotData : ScriptableObject, IRobotData
     [field: SerializeField] public AttackType AttackType { get; private set; }
     [field: SerializeField] public LayerMask AttackTarget { get; private set; }
     [field: SerializeField] public RobotsName RobotName { get; private set; }
-    public int RobotLevel = 1;
+    [field: SerializeField] public int RobotLevel { get; private set; } = 1;
+
+    private RobotStatsCalculator _statsCalculator;
+
+    private void Awake()
+    {
+        _statsCalculator = new RobotStatsCalculator(this);
+        Debug.Log($"Кальклуятор для {RobotName} создан!");
+    }
+
+    public void LevelUp()
+    {
+        RobotLevel++;
+    }
+
+    public float GetTotalHealth() => _statsCalculator.GetHealth();
+    public float GetTotalDamage() => _statsCalculator.GetDamage();
+    public float GetSellingPrice() => _statsCalculator.GetSellingPrice();
 }

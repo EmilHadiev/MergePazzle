@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a0882851faac43824ab03f235327d, type: 3}
   m_Name: Tanker
   m_EditorClassIdentifier: 
-  <StartHealth>k__BackingField: 25
-  <StartDamage>k__BackingField: 3
+  <StartHealth>k__BackingField: 22
+  <StartDamage>k__BackingField: 4
   <AttackRange>k__BackingField: 10
   <AttackRadius>k__BackingField: 1
-  <StartAttackSpeed>k__BackingField: 3
+  <StartAttackSpeed>k__BackingField: 25
   <MoveSpeed>k__BackingField: 2
-  <StartPrice>k__BackingField: 20
+  <StartPrice>k__BackingField: 30
   <AttackType>k__BackingField: 0
   <AttackTarget>k__BackingField:
     serializedVersion: 2

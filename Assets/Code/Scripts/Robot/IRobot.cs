@@ -3,4 +3,5 @@
     ICharacterAnimator Animator { get; }
     IRobotBehaviourStateMachine StateMachine { get; }
     IRobotData Data { get; }
+    IRobotUpgrader Upgrader { get; }
 }
