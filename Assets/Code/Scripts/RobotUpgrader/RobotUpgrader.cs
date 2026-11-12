@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RobotUpgrader : MonoBehaviour, IRobotUpgrader
 {
@@ -10,6 +9,7 @@ public class RobotUpgrader : MonoBehaviour, IRobotUpgrader
     private void Start()
     {
         _data = GetComponent<IRobot>().Data;
+        LevelUp();
     }
 
     public void LevelUp()

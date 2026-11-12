@@ -12,6 +12,7 @@ public interface IRobotData
     float StartDamage { get; }
     float StartHealth { get; }
     float StartPrice { get; }
+    int RobotLevel { get; }
 
     public void LevelUp();
     public float GetTotalHealth();
