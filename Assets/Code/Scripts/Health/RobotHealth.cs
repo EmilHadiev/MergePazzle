@@ -7,17 +7,35 @@ public class RobotHealth : MonoBehaviour, IHealth
 {
     private float _health;
     private float _maxHealth;
+    private IRobotDeleter _deleter;
+
     private bool IsDead => _health <= 0;
 
     public event Action<float, float> HealthChanged;
     public event Action<float> DamageTaked;
     public event Action Died;
 
+    private void Awake()
+    {
+        _deleter = GetComponent<IRobotDeleter>();
+    }
+
     private void Start()
     {
         var robot = GetComponent<IRobot>();
+
         _health = robot.Data.StartHealth;
-        _maxHealth = _health;
+        _maxHealth = _health;        
+    }
+
+    private void OnEnable()
+    {
+        _deleter.Deleting += OnKill;
+    }
+
+    private void OnDisable()
+    {
+        _deleter.Deleting -= OnKill;
     }
 
     public void TakeDamage(float damage)
@@ -37,5 +55,10 @@ public class RobotHealth : MonoBehaviour, IHealth
     {
         if (IsDead)
             Died?.Invoke();
+    }
+
+    private void OnKill()
+    {
+        Died?.Invoke();
     }
 }

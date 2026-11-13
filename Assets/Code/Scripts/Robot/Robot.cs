@@ -11,6 +11,7 @@ using Zenject;
 [RequireComponent(typeof(RobotSoundObserver))]
 [RequireComponent(typeof(RobotTargetRotator))]
 [RequireComponent(typeof(RobotUpgrader))]
+[RequireComponent(typeof(RobotDeleter))]
 public class Robot : MonoBehaviour, IRobot
 {
     [SerializeField] private CharacterAnimator _animator;
@@ -18,6 +19,7 @@ public class Robot : MonoBehaviour, IRobot
     [SerializeField] private RobotAttackPerformer _attacker;
     [SerializeField] private RobotsName _robotName;
     [SerializeField] private RobotUpgrader _upgrader;
+    [SerializeField] private RobotDeleter _deleter;
 
     private RobotData _data;
 
@@ -26,6 +28,7 @@ public class Robot : MonoBehaviour, IRobot
     public IRobotBehaviourStateMachine StateMachine { get; private set; }
 
     public IRobotUpgrader Upgrader => _upgrader;
+    public IRobotDeleter Deleter => _deleter;
 
     private void OnValidate()
     {
@@ -33,6 +36,7 @@ public class Robot : MonoBehaviour, IRobot
         _attacker ??= GetComponent<RobotAttackPerformer>();
         _mover ??= GetComponent<RobotMover>();
         _upgrader ??= GetComponent<RobotUpgrader>();
+        _deleter ??= GetComponent<RobotDeleter>();
     }
 
     private void Awake()

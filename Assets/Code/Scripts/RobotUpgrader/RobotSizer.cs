@@ -27,7 +27,6 @@ public class RobotSizer : MonoBehaviour
     private void Start()
     {
         _data = _robot.Data;
-        UpdateScale();
     }
 
     private void OnEnable()
