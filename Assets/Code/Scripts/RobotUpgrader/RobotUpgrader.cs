@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(RobotSizer))]
 public class RobotUpgrader : MonoBehaviour, IRobotUpgrader
 {
     public event Action Upgraded;
@@ -9,12 +10,17 @@ public class RobotUpgrader : MonoBehaviour, IRobotUpgrader
     private void Start()
     {
         _data = GetComponent<IRobot>().Data;
-        LevelUp();
+        Upgrade();
     }
 
-    public void LevelUp()
+    public void Upgrade()
+    {
+        LevelUp();
+        Upgraded?.Invoke();
+    }
+
+    private void LevelUp()
     {
         _data.LevelUp();
-        Upgraded?.Invoke();
     }
 }

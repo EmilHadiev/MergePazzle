@@ -4,5 +4,5 @@ public interface IRobotUpgrader
 {
     event Action Upgraded;
 
-    void LevelUp();
+    void Upgrade();
 }

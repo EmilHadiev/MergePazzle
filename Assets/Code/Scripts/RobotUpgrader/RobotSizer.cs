@@ -13,6 +13,11 @@ public class RobotSizer : MonoBehaviour
 
     private Transform Target => _robotBody.transform;
 
+    private void OnValidate()
+    {
+        _robotBody ??= GetComponentInChildren<RobotBody>();    
+    }
+
     private void Awake()
     {
         _robot = GetComponent<IRobot>();
