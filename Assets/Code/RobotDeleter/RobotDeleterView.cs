@@ -5,6 +5,13 @@ public class RobotDeleterView : MonoBehaviour
 {
     [SerializeField] private Button _deleteButton;
 
+    private IRobotDeleter _deleter;
+
+    private void Awake()
+    {
+        _deleter = GetComponentInParent<IRobot>().Deleter;
+    }
+
     private void OnEnable()
     {
         _deleteButton.onClick.AddListener(Delete);
@@ -17,6 +24,6 @@ public class RobotDeleterView : MonoBehaviour
 
     private void Delete()
     {
-
+        _deleter.Delete();
     }
 }

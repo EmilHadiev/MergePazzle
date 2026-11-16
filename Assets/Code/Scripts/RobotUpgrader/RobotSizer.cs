@@ -43,7 +43,6 @@ public class RobotSizer : MonoBehaviour
     {
         if (_data == null)
         {
-            Debug.LogError($"{_data} is null");
             return;
         }
 

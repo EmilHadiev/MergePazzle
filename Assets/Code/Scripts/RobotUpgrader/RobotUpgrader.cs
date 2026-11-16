@@ -10,7 +10,6 @@ public class RobotUpgrader : MonoBehaviour, IRobotUpgrader
     private void Start()
     {
         _data = GetComponent<IRobot>().Data;
-        Upgrade();
     }
 
     public void Upgrade()
