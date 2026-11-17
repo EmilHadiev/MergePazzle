@@ -8,6 +8,8 @@ public class RobotHealth : MonoBehaviour, IHealth
     private float _health;
     private float _maxHealth;
     private IRobotDeleter _deleter;
+    private IRobotData _data;
+    private IRobotUpgrader _upgrader;
 
     private bool IsDead => _health <= 0;
 
@@ -18,24 +20,25 @@ public class RobotHealth : MonoBehaviour, IHealth
     private void Awake()
     {
         _deleter = GetComponent<IRobotDeleter>();
+        _upgrader = GetComponent<IRobotUpgrader>();
     }
 
     private void Start()
     {
-        var robot = GetComponent<IRobot>();
-
-        _health = robot.Data.StartHealth;
-        _maxHealth = _health;        
+        _data = GetComponent<IRobot>().Data;
+        SetHealth();
     }
 
     private void OnEnable()
     {
         _deleter.Deleting += OnKill;
+        _upgrader.Upgraded += SetHealth;
     }
 
     private void OnDisable()
     {
         _deleter.Deleting -= OnKill;
+        _upgrader.Upgraded -= SetHealth;
     }
 
     public void TakeDamage(float damage)
@@ -60,5 +63,12 @@ public class RobotHealth : MonoBehaviour, IHealth
     private void OnKill()
     {
         Died?.Invoke();
+    }
+
+    private void SetHealth()
+    {
+        _health = _data.GetTotalHealth();
+        _maxHealth = _health;
+        HealthChanged?.Invoke(_health, _maxHealth);
     }
 }

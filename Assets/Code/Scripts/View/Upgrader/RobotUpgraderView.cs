@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasRotator))]
 [RequireComponent(typeof(RobotDeleterView))]
+[RequireComponent(typeof(RobotDeleterView))]
+[RequireComponent(typeof(CanvasLifter))]
 public class RobotUpgraderView : MonoBehaviour
 {
     [SerializeField] private Button _upgradeButton;

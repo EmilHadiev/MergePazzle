@@ -34,7 +34,7 @@ public class MeleeAttackLogic : IAttackLogic
         {
             if (_targets[i].TryGetComponent(out IHealth health))
             {
-                health.TakeDamage(_robotData.StartDamage);
+                health.TakeDamage(_robotData.GetTotalDamage());
             }
         }
     }

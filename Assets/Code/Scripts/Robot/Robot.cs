@@ -12,6 +12,7 @@ using Zenject;
 [RequireComponent(typeof(RobotTargetRotator))]
 [RequireComponent(typeof(RobotUpgrader))]
 [RequireComponent(typeof(RobotDeleter))]
+[RequireComponent(typeof(RobotLifter))]
 public class Robot : MonoBehaviour, IRobot
 {
     [SerializeField] private CharacterAnimator _animator;

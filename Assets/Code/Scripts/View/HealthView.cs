@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasRotator))]
+[RequireComponent(typeof(CanvasLifter))]
 public class HealthView : MonoBehaviour
 {
     [SerializeField] private CanvasRotator _rotator;

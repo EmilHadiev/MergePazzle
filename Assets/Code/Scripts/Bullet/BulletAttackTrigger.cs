@@ -31,7 +31,13 @@ public class BulletAttackTrigger : MonoBehaviour
     {
         if (collider.TryGetComponent(out IHealth health))
         {
-            health.TakeDamage(_data.StartDamage);            
+            if (_data == null)
+            {
+                Debug.Log(_data is null);
+                return;
+            }    
+
+            health.TakeDamage(_data.GetTotalDamage());            
         }
 
         if (collider.TryGetComponent(out IDamageImpactView impactView))

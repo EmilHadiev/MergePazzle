@@ -1,6 +1,7 @@
 public class RobotStatsCalculator
 {
     private const float Coefficient = 0.5f;
+
     private readonly RobotData _data;
 
     public RobotStatsCalculator(RobotData data)
