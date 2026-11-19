@@ -21,7 +21,6 @@ public class RobotData : ScriptableObject, IRobotData
     private void Awake()
     {
         _statsCalculator = new RobotStatsCalculator(this);
-        Debug.Log($"Кальклуятор для {RobotName} создан!");
     }
 
     public void LevelUp()

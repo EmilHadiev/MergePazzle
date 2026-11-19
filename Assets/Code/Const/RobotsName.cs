@@ -8,5 +8,6 @@ public enum RobotsName
     Speedster, 
     SpeedsterTurbo, 
     Tanker, 
-    TankerPro
+    TankerPro,
+    None
 }

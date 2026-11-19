@@ -1,4 +1,6 @@
-﻿public interface IRobot
+﻿using UnityEngine;
+
+public interface IRobot
 {
     ICharacterAnimator Animator { get; }
     IRobotBehaviourStateMachine StateMachine { get; }

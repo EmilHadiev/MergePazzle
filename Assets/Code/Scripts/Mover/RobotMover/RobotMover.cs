@@ -6,7 +6,6 @@ public class RobotMover : MonoBehaviour, IMover
 
     private void Start()
     {
-        Debug.Log("Доработать!");
         IRobot robot = GetComponent<IRobot>();
         var data = robot.Data;
         var animator = robot.Animator;
