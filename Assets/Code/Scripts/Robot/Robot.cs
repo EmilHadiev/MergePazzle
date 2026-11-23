@@ -31,6 +31,8 @@ public class Robot : MonoBehaviour, IRobot
     public IRobotUpgrader Upgrader => _upgrader;
     public IRobotDeleter Deleter => _deleter;
 
+    public RobotsName Name => _robotName;
+
     private void OnValidate()
     {
         _animator ??= GetComponent<CharacterAnimator>();
@@ -53,6 +55,7 @@ public class Robot : MonoBehaviour, IRobot
     [Inject]
     public void Construct(IEnumerable<RobotData> data)
     {
-        _data = data.First(n => n.RobotName == _robotName);
+        var tmpData = data.First(n => n.RobotName == _robotName);
+        _data = Instantiate(tmpData);
     }
 }

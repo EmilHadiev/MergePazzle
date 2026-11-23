@@ -1,12 +1,17 @@
+using System;
 using UnityEngine;
 using Zenject;
 public class CellDetector : IInitializable, ITickable, ICellDetector
 {
+    private const int LeftMouseButton = 0;
+
     private LayerMask _cellLayer;
     private Camera _camera;
     private Cell _currentCell;
 
     private bool _isWorking;
+
+    public event Action<Cell> CellSelected;
 
     public void StartWorking() => _isWorking = true;
 
@@ -37,16 +42,29 @@ public class CellDetector : IInitializable, ITickable, ICellDetector
 
         Cell cell = FindCellUnderCursor();
 
-        if (cell == _currentCell)
+        if (cell != _currentCell)
+        {
+            if (_currentCell != null)
+                _currentCell.Out();
+
+            _currentCell = cell;
+
+            if (_currentCell != null)
+                _currentCell.Select();
+        }
+
+        TrySelect();
+    }
+
+    private void TrySelect()
+    {
+        if (_currentCell == null)
             return;
 
-        if (_currentCell != null)
-            _currentCell.Out();
+        if (Input.GetMouseButtonDown(LeftMouseButton) == false)
+            return;
 
-        _currentCell = cell;
-
-        if (_currentCell != null)
-            _currentCell.Select();
+        CellSelected?.Invoke(_currentCell);
     }
 
     private Cell FindCellUnderCursor()

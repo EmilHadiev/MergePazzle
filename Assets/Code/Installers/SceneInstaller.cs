@@ -12,6 +12,7 @@ public class SceneInstaller : MonoInstaller
     {
         Container.BindInterfacesTo<Factory>().AsSingle();
         Container.BindInterfacesAndSelfTo<ParticleFactory>().AsSingle();
+        Container.BindInterfacesTo<RobotFactory>().AsSingle();
     }
 
     private void BindCellDetector()

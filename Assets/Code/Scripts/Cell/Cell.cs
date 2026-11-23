@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(MaterialColorChanger))]
@@ -11,14 +12,19 @@ public class Cell : MonoBehaviour
     [SerializeField] private Color _defaultColor;
     [SerializeField] private Color _lockColor;
 
-    private Robot _robot;
+    private IRobotDeleter _robotDeleter;
     private bool _isCellOccupied;
     private bool _isLocked;
 
     private void OnValidate()
     {
         _colorChanger ??= GetComponent<MaterialColorChanger>();
-    }         
+    }
+
+    private void OnDestroy()
+    {
+        OnDeleting();
+    }
 
     public void Select()
     {
@@ -45,61 +51,45 @@ public class Cell : MonoBehaviour
         _isLocked = true;
     }
 
-    public void SetView(Robot robot)
+    public bool IsFree(RobotsName name)
     {
-        if (_isCellOccupied)
+        if (_isLocked)
+            return false;
+
+        return _isCellOccupied == false;
+    }
+
+    public void TrySet(Transform robot, IRobotDeleter deleter)
+    {
+        if (_isLocked)
+            return;
+
+        if (_isCellOccupied == false)
         {
-            if (_robot == robot)
-            {
-                _colorChanger.ChangeColor(_freeColor);
-            }
-            else
-            {
-                _colorChanger.ChangeColor(_occupiedColor);
-            }           
-        }
-        else
-        {
-            _colorChanger.ChangeColor(_freeColor);
+            _robotDeleter = deleter;
+            _isCellOccupied = true;
+            SetPositionAndRotation(robot);
+            _robotDeleter.Deleting += OnDeleting;
         }
     }
 
-    public void TrySet(Robot robot)
+    private void OnDeleting()
     {
-        if (_isCellOccupied)
+        if (_robotDeleter != null)
         {
-            if (_robot == robot)
-            {
-                Upgrade(robot, _robot.Upgrader);
-                return;
-            }
-
-            if (_robot != robot)
-            {
-
-            }
-        }
-        else
-        {
-
-        }
-
-        _robot = robot;
-    }
-
-    private void SetRobot(Robot robot)
-    {
-        robot.transform.position = transform.position;
-    }
-
-    private void Upgrade(Robot newRobot, IRobotUpgrader currentRobot)
-    {
-        Destroy(newRobot);
-        currentRobot.Upgrade();
+            _robotDeleter.Deleting -= OnDeleting;
+            _robotDeleter = null;
+            _isCellOccupied = false;
+        }        
     }
 
     private void ChangeColor(Color color)
     {
         _colorChanger.ChangeColor(color);
+    }
+
+    private void SetPositionAndRotation(Transform robot)
+    {
+        robot.SetPositionAndRotation(transform.position, default);
     }
 }
