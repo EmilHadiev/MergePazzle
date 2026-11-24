@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MaterialColorChanger))]
@@ -15,6 +15,8 @@ public class Cell : MonoBehaviour
     private IRobotDeleter _robotDeleter;
     private bool _isCellOccupied;
     private bool _isLocked;
+    private float _yAngle;
+    private RobotSide _side;
 
     private void OnValidate()
     {
@@ -51,6 +53,16 @@ public class Cell : MonoBehaviour
         _isLocked = true;
     }
 
+    public void SetRotation(float yAngle)
+    {
+        _yAngle = yAngle;
+    }
+
+    public void SetSide(RobotSide side)
+    {
+        _side = side;
+    }
+
     public bool IsFree(RobotsName name)
     {
         if (_isLocked)
@@ -69,8 +81,15 @@ public class Cell : MonoBehaviour
             _robotDeleter = deleter;
             _isCellOccupied = true;
             SetPositionAndRotation(robot);
+            SetRobotSide(robot);
             _robotDeleter.Deleting += OnDeleting;
         }
+    }
+
+    private void SetRobotSide(Transform robot)
+    {
+        if (robot.TryGetComponent(out Robot robotComponent))
+            robotComponent.SetSide(_side);
     }
 
     private void OnDeleting()
@@ -90,6 +109,7 @@ public class Cell : MonoBehaviour
 
     private void SetPositionAndRotation(Transform robot)
     {
-        robot.SetPositionAndRotation(transform.position, default);
+        Vector3 rotation = new Vector3(0, _yAngle, 0);
+        robot.SetPositionAndRotation(transform.position, Quaternion.Euler(rotation.x, rotation.y, rotation.z));
     }
 }

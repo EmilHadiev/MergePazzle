@@ -32,6 +32,7 @@ public class Robot : MonoBehaviour, IRobot
     public IRobotDeleter Deleter => _deleter;
 
     public RobotsName Name => _robotName;
+    public RobotSide Side { get; private set; }
 
     private void OnValidate()
     {
@@ -57,5 +58,10 @@ public class Robot : MonoBehaviour, IRobot
     {
         var tmpData = data.First(n => n.RobotName == _robotName);
         _data = Instantiate(tmpData);
+    }
+
+    public void SetSide(RobotSide side)
+    {
+        Side = side;
     }
 }

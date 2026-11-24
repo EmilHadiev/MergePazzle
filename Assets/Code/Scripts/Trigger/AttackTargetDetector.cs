@@ -5,6 +5,7 @@ public class AttackTargetDetector : MonoBehaviour
     [SerializeField] private AttackSensor _sensor;
 
     private IRobotBehaviourStateMachine _stateMachine;
+    private IRobot _robot;
 
     private void OnValidate()
     {
@@ -13,8 +14,8 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void Start()
     {
-        var robot = GetComponent<IRobot>();
-        _stateMachine = robot.StateMachine;        
+        _robot = GetComponent<IRobot>();
+        _stateMachine = _robot.StateMachine;        
     }
 
     private void OnEnable()
@@ -31,6 +32,12 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void TargetFounded(Collider collider)
     {
+        if (collider.TryGetComponent(out IRobot otherRobot))
+        {
+            if (otherRobot.Side == _robot.Side)
+                return;
+        }
+
         _stateMachine.SwitchTo<RobotAttackState>();
     }
 

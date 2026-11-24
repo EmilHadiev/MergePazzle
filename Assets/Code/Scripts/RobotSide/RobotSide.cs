@@ -1,6 +1,5 @@
-using UnityEngine;
-
-public abstract class RobotSide : MonoBehaviour
+public enum RobotSide
 {
-
+    Left,
+    Right
 }
