@@ -8,12 +8,12 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
     private IRobotBehaviourState _currentState;
     private IRobotBehaviourState _previousState;
 
-    public RobotBehaviourStateMachine(IAttackPerformer attackable, IMover mover)
+    public RobotBehaviourStateMachine(IAttackPerformer attackable, IMover mover, RobotDeleterAndUpgraderView viewer)
     {
         _states = new Dictionary<Type, IRobotBehaviourState>();
         _states.Add(typeof(RobotAttackState), new RobotAttackState(attackable));
         _states.Add(typeof(RobotMoveState), new RobotMoveState(mover));
-        _states.Add(typeof(StubState), new StubState());
+        _states.Add(typeof(IdleState), new IdleState(viewer));
     }
 
     public void SwitchTo<T>() where T : IRobotBehaviourState

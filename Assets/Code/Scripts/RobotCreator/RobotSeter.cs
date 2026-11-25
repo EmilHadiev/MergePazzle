@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,7 @@ public class RobotSeter : MonoBehaviour
 
     [Inject] private IRobotFactory _factory;
     [Inject] private ICellDetector _detector;
+    [Inject] private IRobotContainer _container;
 
     private void OnEnable()
     {
@@ -29,7 +31,8 @@ public class RobotSeter : MonoBehaviour
         if (cell.IsFree(_robotName))
         {
             var robot = await _factory.CreateRobot(_robotName);
-            cell.TrySet(robot.transform, robot.Deleter);
+            cell.TrySet(robot.transform, robot.Deleter);            
+            _container.Add(robot);
         }
     }
 }

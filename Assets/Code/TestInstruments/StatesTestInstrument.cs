@@ -33,7 +33,7 @@ public class StatesTestInstrument : MonoBehaviour
     private void StubState()
     {
         foreach (var state in _states)
-            state.SwitchTo<StubState>();
+            state.SwitchTo<IdleState>();
     }
 
     private void MoveState()

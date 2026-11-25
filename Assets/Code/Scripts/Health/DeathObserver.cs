@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class DeathObserver : MonoBehaviour
 {
+    [Inject] private readonly IRobotContainer _container;
+
     private IHealth _health;
     private ICharacterAnimator _animator;
+    private IRobot _robot;
 
     private void Awake()
     {
+        _robot = GetComponent<IRobot>();
+
         _health = GetComponent<IHealth>();
-        _animator = GetComponent<ICharacterAnimator>();
+        _animator = _robot.Animator;
     }
 
     private void OnEnable()
@@ -23,6 +29,7 @@ public class DeathObserver : MonoBehaviour
 
     private void OnDied()
     {
+        _container.Remove(_robot);
         _animator.DieTrigger();
     }
 

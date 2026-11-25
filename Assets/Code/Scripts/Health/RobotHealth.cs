@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(DeathObserver))]
 [RequireComponent(typeof(DamageTrigger))]

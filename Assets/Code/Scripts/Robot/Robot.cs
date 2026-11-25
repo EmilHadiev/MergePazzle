@@ -45,12 +45,13 @@ public class Robot : MonoBehaviour, IRobot
 
     private void Awake()
     {
-        StateMachine = new RobotBehaviourStateMachine(_attacker, _mover);
+        var viewer = GetComponentInChildren<RobotDeleterAndUpgraderView>();
+        StateMachine = new RobotBehaviourStateMachine(_attacker, _mover, viewer);
     }
 
     private void Start()
     {
-        StateMachine.SwitchTo<StubState>();
+        StateMachine.SwitchTo<IdleState>();
     }
 
     [Inject]

@@ -6,8 +6,20 @@ public class SceneInstaller : MonoInstaller
     {
         BindFactory();
         BindCellDetector();
+        BindCombatSystem();
+        BindRobotContainer();
     }
-    
+
+    private void BindCombatSystem()
+    {
+        Container.BindInterfacesTo<CombatSystem>().AsSingle();
+    }
+
+    private void BindRobotContainer()
+    {
+        Container.BindInterfacesTo<RobotContainer>().AsSingle();
+    }
+
     private void BindFactory()
     {
         Container.BindInterfacesTo<Factory>().AsSingle();
