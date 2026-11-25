@@ -55,7 +55,7 @@ public class MeleeAttackSensor : AttackSensor
 
     private void SetZonePosition(float attackRange)
     {
-        Vector3 newPos = transform.position;
+        Vector3 newPos = transform.localPosition;
         newPos.z = attackRange;
         transform.localPosition = newPos;
     }
