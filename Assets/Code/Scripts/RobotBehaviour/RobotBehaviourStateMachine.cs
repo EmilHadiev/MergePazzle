@@ -14,6 +14,7 @@ public class RobotBehaviourStateMachine : IRobotBehaviourStateMachine
         _states.Add(typeof(RobotAttackState), new RobotAttackState(attackable));
         _states.Add(typeof(RobotMoveState), new RobotMoveState(mover));
         _states.Add(typeof(IdleState), new IdleState(viewer));
+        _states.Add(typeof(StubState), new StubState());
     }
 
     public void SwitchTo<T>() where T : IRobotBehaviourState

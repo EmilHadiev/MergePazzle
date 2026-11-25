@@ -36,12 +36,14 @@ public class Attacker : MonoBehaviour, IAttackable
 
     private IAttackLogic GetMeleeAttackLogic(IRobotData data)
     {
+        MeleeAttackSensor sensor = GetComponentInChildren<MeleeAttackSensor>();
+
         if (TryGetComponent(out TargetCounter counter))
         {
             Debug.Log(counter.TargetCount);
-            return new MeleeAttackLogic(data, transform, data.AttackTarget, counter.TargetCount);
+            return new MeleeAttackLogic(data, sensor.transform, data.AttackTarget, counter.TargetCount);
         }
-        return new MeleeAttackLogic(data, transform, data.AttackTarget);
+        return new MeleeAttackLogic(data, sensor.transform, data.AttackTarget);
     }
 
     private void AttackStarted()

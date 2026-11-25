@@ -43,6 +43,6 @@ public class AttackTargetDetector : MonoBehaviour
 
     private void TargetLost(Collider collider)
     {
-        _stateMachine.SwitchTo<IdleState>();
+        _stateMachine.SwitchTo<StubState>();
     }
 }

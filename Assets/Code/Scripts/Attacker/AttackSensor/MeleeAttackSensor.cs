@@ -31,8 +31,9 @@ public class MeleeAttackSensor : AttackSensor
 
     private void Start()
     {
-        var robot = GetComponentInParent<IRobot>();
-        SetZoneOptions(_observer.GetComponent<SphereCollider>(), robot.Data.AttackRadius);
+        var data = GetComponentInParent<IRobot>().Data;
+        SetZoneOptions(_observer.GetComponent<SphereCollider>(), data.AttackRadius);
+        SetZonePosition(data.AttackRange);
         _targetObserver.Init(OnTargetLost);
     }
 
@@ -44,12 +45,18 @@ public class MeleeAttackSensor : AttackSensor
     protected override void OnTargetLost(Collider target)
     {
         TargetLost?.Invoke(target);
-        Debug.Log("LOST!!!");
     }
 
     private void SetZoneOptions(SphereCollider collider, float attackRadius)
     {
         collider.radius = attackRadius;
         collider.isTrigger = true;
+    }
+
+    private void SetZonePosition(float attackRange)
+    {
+        Vector3 newPos = transform.position;
+        newPos.z = attackRange;
+        transform.localPosition = newPos;
     }
 }
