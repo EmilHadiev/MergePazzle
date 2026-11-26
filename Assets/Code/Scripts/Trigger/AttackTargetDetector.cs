@@ -1,8 +1,14 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackTargetDetector : MonoBehaviour
 {
+    private static readonly Predicate<Collider> IsDestroyed = collider => collider == null;
+
     [SerializeField] private AttackSensor _sensor;
+
+    private readonly List<Collider> _targets = new();
 
     private IRobotBehaviourStateMachine _stateMachine;
     private IRobot _robot;
@@ -15,7 +21,7 @@ public class AttackTargetDetector : MonoBehaviour
     private void Start()
     {
         _robot = GetComponent<IRobot>();
-        _stateMachine = _robot.StateMachine;        
+        _stateMachine = _robot.StateMachine;
     }
 
     private void OnEnable()
@@ -28,21 +34,44 @@ public class AttackTargetDetector : MonoBehaviour
     {
         _sensor.TargetDetected -= TargetFounded;
         _sensor.TargetLost -= TargetLost;
+        _targets.Clear();
     }
 
     private void TargetFounded(Collider collider)
     {
-        if (collider.TryGetComponent(out IRobot otherRobot))
-        {
-            if (otherRobot.Side == _robot.Side)
-                return;
-        }
+        if (IsEnemy(collider) == false || _targets.Contains(collider))
+            return;
 
-        _stateMachine.SwitchTo<RobotAttackState>();
+        _targets.RemoveAll(IsDestroyed);
+
+        bool isFirstTarget = _targets.Count == 0;
+        _targets.Add(collider);
+
+        if (isFirstTarget)
+            _stateMachine.SwitchTo<RobotAttackState>();
     }
 
     private void TargetLost(Collider collider)
     {
-        _stateMachine.SwitchTo<StubState>();
+        if (_targets.Remove(collider) == false)
+            return;
+
+        _targets.RemoveAll(IsDestroyed);
+
+        if (_targets.Count == 0)
+            _stateMachine.SwitchTo<StubState>();
+    }
+
+    private bool IsEnemy(Collider collider)
+    {
+        IRobot otherRobot = collider.GetComponentInParent<IRobot>();
+
+        if (otherRobot == null)
+            return true;
+
+        if (_robot != null && otherRobot == _robot)
+            return false;
+
+        return otherRobot.Side != _robot.Side;
     }
 }

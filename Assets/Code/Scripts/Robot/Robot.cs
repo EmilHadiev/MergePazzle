@@ -46,7 +46,8 @@ public class Robot : MonoBehaviour, IRobot
     private void Awake()
     {
         var viewer = GetComponentInChildren<RobotDeleterAndUpgraderView>();
-        StateMachine = new RobotBehaviourStateMachine(_attacker, _mover, viewer);
+        var sensor = GetComponentInChildren<AttackSensor>();
+        StateMachine = new RobotBehaviourStateMachine(_attacker, _mover, viewer, sensor);
     }
 
     private void Start()

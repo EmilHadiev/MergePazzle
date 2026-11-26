@@ -1,33 +1,36 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public class TriggerObserver : MonoBehaviour
 {
+    private static readonly Predicate<Collider> IsDestroyed = collider => collider == null;
+
     public event Action<Collider> Entered;
     public event Action<Collider> Exited;
 
-    private bool _isOn;
+    private readonly HashSet<Collider> _colliders = new();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_isOn == false)
-        {
-            Lock();
+        _colliders.RemoveWhere(IsDestroyed);
+
+        if (_colliders.Add(other))
             Entered?.Invoke(other);
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (_isOn)
-        {
-            UnLock();
+        if (_colliders.Remove(other))
             Exited?.Invoke(other);
-        }
     }
 
-    public void Lock() => _isOn = true;
+    private void OnDisable()
+    {
+        _colliders.Clear();
+    }
 
-    public void UnLock() => _isOn = false;
+    /// <summary>Сброс запомненных коллайдеров (совместимость со старым API, используется пулями).</summary>
+    public void UnLock() => _colliders.Clear();
 }

@@ -1,12 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeTargetObserver : MonoBehaviour
 {
     [SerializeField] private MeleeAttackSensor _attackSensor;
 
-    private IHealth _currentTarget;
-    private Collider _target;
+    private readonly Dictionary<Collider, Target> _targets = new();
+
     private Action<Collider> _targetLost;
 
     private void OnValidate()
@@ -24,6 +25,7 @@ public class MeleeTargetObserver : MonoBehaviour
     {
         _attackSensor.TargetDetected -= OnTargetDetected;
         _attackSensor.TargetLost -= OnTargetLost;
+        Clear();
     }
 
     public void Init(Action<Collider> targetLost)
@@ -33,30 +35,65 @@ public class MeleeTargetObserver : MonoBehaviour
 
     private void OnTargetDetected(Collider collider)
     {
-        if (collider.TryGetComponent(out IHealth health))
-        {
-            _currentTarget = health;
-            _currentTarget.Died += OnDied;
-        }
+        if (_targets.ContainsKey(collider))
+            return;
 
-        _target = collider;
+        if (collider.TryGetComponent(out IHealth health) == false)
+            return;
+
+        Action diedHandler = () => OnTargetDied(collider);
+
+        health.Died += diedHandler;
+        _targets.Add(collider, new Target(health, diedHandler));
     }
 
     private void OnTargetLost(Collider collider)
     {
-        RemoveTarget();
+        Remove(collider);
     }
 
-    private void RemoveTarget()
+    private void OnTargetDied(Collider collider)
     {
-        if (_currentTarget != null)
+        if (Remove(collider) == false)
+            return;
+
+        _targetLost?.Invoke(collider);
+    }
+
+    private bool Remove(Collider collider)
+    {
+        if (_targets.TryGetValue(collider, out Target target) == false)
+            return false;
+
+        _targets.Remove(collider);
+        Unsubscribe(target);
+
+        return true;
+    }
+
+    private void Clear()
+    {
+        foreach (Target target in _targets.Values)
+            Unsubscribe(target);
+
+        _targets.Clear();
+    }
+
+    private static void Unsubscribe(Target target)
+    {
+        if (target.Health is UnityEngine.Object unityObject && unityObject != null)
+            target.Health.Died -= target.DiedHandler;
+    }
+
+    private sealed class Target
+    {
+        public readonly IHealth Health;
+        public readonly Action DiedHandler;
+
+        public Target(IHealth health, Action diedHandler)
         {
-            _currentTarget.Died -= OnDied;
+            Health = health;
+            DiedHandler = diedHandler;
         }
-    }
-
-    private void OnDied()
-    {
-        _targetLost?.Invoke(_target);
     }
 }

@@ -8,6 +8,8 @@ public class MeleeAttackSensor : AttackSensor
     [SerializeField] private TriggerObserver _observer;
     [SerializeField] private MeleeTargetObserver _targetObserver;
 
+    private IRobot _owner;
+
     public override event Action<Collider> TargetDetected;
     public override event Action<Collider> TargetLost;
 
@@ -39,12 +41,26 @@ public class MeleeAttackSensor : AttackSensor
 
     protected override void OnTargetDetected(Collider target)
     {
+        if (IsOwner(target))
+            return;
+
         TargetDetected?.Invoke(target);
     }
 
     protected override void OnTargetLost(Collider target)
     {
+        if (IsOwner(target))
+            return;
+
         TargetLost?.Invoke(target);
+    }
+
+    private bool IsOwner(Collider other)
+    {
+        if (_owner == null)
+            _owner = GetComponentInParent<IRobot>();
+
+        return _owner != null && other.GetComponentInParent<IRobot>() == _owner;
     }
 
     private void SetZoneOptions(SphereCollider collider, float attackRadius)
