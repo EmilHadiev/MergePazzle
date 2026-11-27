@@ -1,0 +1,1 @@
+public interface IGemsStorage : ICurrency { }

@@ -1,6 +1,7 @@
 public class RobotStatsCalculator
 {
-    private const float Coefficient = 0.5f;
+    private const float HalfCoefficient = 0.5f;
+    private const float UpgradePriceCoefficent = 0.85f;
 
     private readonly RobotData _data;
 
@@ -9,11 +10,13 @@ public class RobotStatsCalculator
         _data = data;
     }
 
-    public float GetHealth() => GetStatsValue(_data.StartHealth);
+    public float GetHealth() => GetValue(_data.StartHealth);
 
-    public float GetDamage() => GetStatsValue(_data.StartDamage);
+    public float GetDamage() => GetValue(_data.StartDamage);
 
-    public float GetSellingPrice() => GetStatsValue(_data.StartPrice);
+    public float GetSellingPrice() => GetValue(_data.StartPrice);
 
-    private float GetStatsValue(float stat) => stat * Coefficient * _data.RobotLevel;
+    public float GetTotalPrice() => GetValue(_data.StartPrice, UpgradePriceCoefficent);
+
+    private float GetValue(float stat, float coefficent = HalfCoefficient) => stat * coefficent * _data.RobotLevel;
 }

@@ -24,6 +24,6 @@ public class RobotUpgraderView : MonoBehaviour
 
     private void Upgrade()
     {
-        _upgrader.Upgrade();
+        _upgrader.TryUpgrade();
     }
 }

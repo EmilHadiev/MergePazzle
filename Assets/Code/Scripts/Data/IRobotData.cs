@@ -18,4 +18,5 @@ public interface IRobotData
     public float GetTotalHealth();
     public float GetTotalDamage();
     public float GetSellingPrice();
+    public float GetUpgradePrice();
 }

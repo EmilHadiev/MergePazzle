@@ -10,6 +10,13 @@ public class GlobalInstaller : MonoInstaller
     {
         BindAddressablesService();
         BindRobotsData();
+        BindMoneyStorage();
+    }
+
+    private void BindMoneyStorage()
+    {
+        Container.BindInterfacesTo<CoinsStorage>().AsSingle();
+        Container.BindInterfacesTo<GemsStorage>().AsSingle();
     }
 
     private void BindRobotsData()

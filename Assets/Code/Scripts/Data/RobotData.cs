@@ -31,4 +31,5 @@ public class RobotData : ScriptableObject, IRobotData
     public float GetTotalHealth() => _statsCalculator.GetHealth();
     public float GetTotalDamage() => _statsCalculator.GetDamage();
     public float GetSellingPrice() => _statsCalculator.GetSellingPrice();
+    public float GetUpgradePrice() => _statsCalculator.GetTotalPrice();
 }
